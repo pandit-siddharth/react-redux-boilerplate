@@ -1,5 +1,5 @@
 
-function BookState(state = ["JAVASCRIPT NINJA"], action) {
+export default function BookState(state = [], action) {
     switch (action.type) {
         case "BOOK_LIST":
             return [].concat(state);
@@ -12,4 +12,11 @@ function BookState(state = ["JAVASCRIPT NINJA"], action) {
     }
 }
 
-export default BookState;
+export function apiState(state = {}, action) {
+    switch (action.type) {
+        case "FETCH_DATA":
+            return Object.assign({}, state, action.payload);
+        default:
+            return state;
+    }
+}

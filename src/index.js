@@ -9,10 +9,11 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 import reducers from './reducers';
 import ReduxPromise from 'redux-promise';
+import ReduxThunk from 'redux-thunk';
 
 const store = createStore(
     reducers,
-    applyMiddleware(logger, ReduxPromise)
+    applyMiddleware(ReduxThunk, logger, ReduxPromise)
 );
 
 ReactDOM.render(
